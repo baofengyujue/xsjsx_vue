@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jack518</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div>单价:{{price}}</div>
+    <input v-model="num">
+    <h2>总价:{{total(price)}}</h2>
+    <!--  computed中的方法名已经不是函数，而是返回的变量了  -->
+    <!--  也就是total2已不是函数，而是一个return回来的数字了  -->
+<!--    <h2>2总价:{{total2()}}</h2>-->
+    <hr>
+    <h2>3总价:{{total3}}</h2>
+    <h2>3总价:{{total3}}</h2>
+    <h2>4总价:{{total4(20)}}</h2>
+    <h2>4总价:{{total4(30)}}</h2>
+</div>
+<p id="p1"></p>
+
+
+</body>
+</html>
+
+<script>
+    var arr = [];
+    new Vue({
+        el:'#app',
+        data:{
+            price:50,
+            num:1,
+        },
+        methods:{
+            total(price){
+                return price*this.num;
+            }
+        },
+        computed:{
+            total2() {
+                return this.price*this.num;
+            },
+            total3() {
+                console.log(this.total,typeof  this.total)
+                console.log(this.total2,typeof this.total2)
+                return this.price*this.num;
+            },
+            total4(){
+                // 这里改变输入框的值，此处并未执行
+                // 可以理解为num的变化并未影响到此处函数的返回
+                console.log('aaa')
+                return function (price){
+                    console.log('b')
+                    return price*this.num;
+                }
+            }
+        }
+    })
+</script>

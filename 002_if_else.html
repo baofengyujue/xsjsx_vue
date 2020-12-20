@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<!--if else等块之间不能插入其它标签
+只允许有空格，否则会报错-->
+<div class="out">
+    <div v-if="isShow">床前明月光</div>
+    <h2 v-else-if="false">疑似地上霜</h2>
+    <h3 v-else>举头望明月</h3>
+    <hr>
+    <h2 v-if="day===1">周一</h2>
+    <h2 v-else-if="day===2">周二</h2>
+    <h2 v-else-if="day===3">周三</h2>
+    <h2 v-else-if="day===4">周四</h2>
+    <h2 v-else-if="day===5">周五</h2>
+    <h2 v-else-if="day===6">周六</h2>
+    <h2 v-else-if="day===7">周日</h2>
+    <h2 v-else>格式错误</h2>
+    <hr>
+
+    <div v-if="false"></div>
+    <div v-else>
+        <div v-if="true">嵌套循环</div>
+        <div v-else>看不到我</div>
+    </div>
+</div>
+</body>
+</html>
+
+<script>
+    new Vue({
+        el:'.out',
+        data:{
+            isShow:false,
+            day:new Date().getDay()
+        }
+    })
+</script>

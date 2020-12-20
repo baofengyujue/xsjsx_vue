@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h2>{{title}}</h2>
+    <h2>{{num}}</h2>
+    <h2>{{bool}}</h2>
+    <h2>{{arr}}</h2>
+    <h2>{{arr[2]}}</h2>
+    <h2>{{obj}}</h2>
+    <h2>{{obj.name}}</h2>
+    <hr>
+    <ul>
+        <li v-for="item in arr">{{item}}</li>
+    </ul>
+    <hr>
+    <ul>
+        <li v-for="(item,idx) in arr">{{idx+'--:'+item}}</li>
+    </ul>
+    <hr>
+    <ul>
+        <li v-for="(item,key) in obj">{{key}}--:{{item}}</li>
+    </ul>
+    <hr>
+    <template v-for="item in arr">
+        <em>{{item}}</em>
+    </template>
+</div>
+
+</body>
+</html>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            title:'Jack518.com',
+            num:123,
+            bool:false,
+            arr:[11,22,3,444],
+            obj:{name:'hanrong',age:18}
+        }
+    })
+</script>

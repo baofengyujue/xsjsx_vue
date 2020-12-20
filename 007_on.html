@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <button v-on:click="myClick">点击</button>
+    <button @click="myClick">@点击</button>
+    <button v-on:mouseover="myClick">mouseover</button>
+    <button @mouseover="myClick">@mouseover</button>
+    <h1>{{title}}</h1>
+</div>
+
+</body>
+</html>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            title:'Hello..',
+            num:1
+        },
+        methods:{
+            myClick(){
+                if (this.num%2==1){
+                    this.title = 'Vue!';
+                }else{
+                    this.title = 'Hello..';
+                }
+                this.num++;
+            }
+        }
+    })
+</script>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .btn {
+            display: inline-block;
+            background-color: #aaa;
+            text-align: center;
+            padding: 20px 30px;
+        }
+
+        .btn:hover {
+            cursor: pointer;
+            background-color: #666;
+            color: white;
+        }
+    </style>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div class="out">
+        <img class="pic" :src="picArr[pageNum]" alt="cannot load...">
+        <div class="btn btnLeft" @click="clickLeft">&lt;</div>
+        <div class="btn btnRight" @click="clickRight">&gt;</div>
+    </div>
+
+    <p>pageNum:{{pageNum}}</p>
+</div>
+
+</body>
+</html>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            pageNum: 0,
+            picArr: [
+                './imgs/L1_伯伯和欣怡纸花棚中-150.png',
+                './imgs/L2_伯羊给欣怡洗头-150.png',
+                './imgs/L3_姨奶&心红&晨晨儿-150.png',
+                './imgs/L4_欣怡沙发上睡着了-150.png'
+            ]
+        },
+        methods: {
+            clickLeft() {
+                if (this.pageNum == 0) {
+                    this.pageNum = this.picArr.length-1;
+                } else {
+                    this.pageNum--;
+                }
+            },
+            clickRight() {
+                if (this.pageNum == this.picArr.length-1) {
+                    this.pageNum = 0;
+                } else {
+                    this.pageNum++;
+                }
+            }
+        }
+    })
+</script>

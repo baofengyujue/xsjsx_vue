@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jack518</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <itembox></itembox>
+    <itembox></itembox>
+    <itembox></itembox>
+    <hr>
+    <ib2></ib2>
+    <ib2></ib2>
+    <hr>
+    <ib3></ib3>
+    <ib3></ib3>
+    <ib3></ib3>
+</div>
+<template id="ib2t">
+    <div class="out">
+        <h2>itembox 2..</h2>
+    </div>
+</template>
+
+</body>
+</html>
+
+<script>
+    var ib3 = {
+        template:
+            '<div>\n' +
+            '    <h2>ib3..</h2>\n' +
+            '</div>\n'
+    };
+
+    new Vue({
+        el:'#app',
+        data:{},
+        components:{
+            itembox:{
+                template:
+                    '<div>\n' +
+                    '    <h2>hello local component..</h2>\n' +
+                    '</div>'
+            },
+            ib2:{
+                template:'#ib2t'
+            },
+            ib3
+        }
+    })
+</script>

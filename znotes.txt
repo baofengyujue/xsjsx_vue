@@ -1,0 +1,6 @@
+vuecli项目main.js中
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router'
+像第一句import Vue from 'vue'没有路径只有名字的话，会到
+库目录里面查找依赖，只有带了路径才会在项目中查找文件

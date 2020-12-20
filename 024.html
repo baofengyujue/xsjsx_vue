@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jack518</title>
+    <style>
+        .list {
+            width: 300px;
+            list-style-type: none;
+        }
+        .list img {
+            width: 100%;
+        }
+    </style>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <button @click="btnClick">获取列表</button>
+    <ul class="list">
+        <li v-for="item in listArr">
+            <img :src="item.picurl" alt="cannot load..">
+            <h3>{{item.title}}</h3>
+            <hr>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            listArr:[]
+        },
+        methods: {
+            btnClick() {
+                // 更常用的形式
+                axios({
+                    // 隐私信息等使用post
+                    method:'post',
+                    url:'https://ku.qingnian8.com/wxList.php',
+                    params:{
+                        num:3,
+                        page:2
+                    }
+                })
+                .then(res=>{
+                        console.log(res)
+                        this.listArr = res.data
+                    })
+            }
+        }
+    })
+</script>

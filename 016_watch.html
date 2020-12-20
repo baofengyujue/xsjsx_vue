@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jack518</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input v-model="myName">
+    <h2>{{myName}}</h2>
+</div>
+
+</body>
+</html>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            myName:''
+        },
+        watch:{
+            myName(val){
+                console.log(val)
+            }
+        }
+    })
+</script>

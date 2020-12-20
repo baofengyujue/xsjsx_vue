@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>{{title}}</h1>
+    <h2>{{job}}</h2>
+    <h2 v-text="job"></h2>
+    <h2 v-html="job"></h2>
+    <hr>
+    <h2 title="des">hello</h2>
+    <h2 title="des" v-bind:title="des">hello</h2>
+    <h2 v-bind:title="des">hello</h2>
+    <h2 :title="des">hello</h2>
+    <hr>
+    <a href="link">jack518.com</a>
+    <a v-bind:href="link">jack518.com</a>
+    <hr>
+    <img src="picurl" alt="can not load..">
+    <img v-bind:src="picurl" alt="">
+    <img :src="picurl" alt="">
+    <hr>
+</div>
+
+</body>
+</html>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            title:'jack wang',
+            job:'web<em style="color:red;">front-end</em>development',
+            des:'i\'m jack wang',
+            link:'http://jack518.com',
+            picurl:'./imgs/P4_然然喝酸奶-150.png'
+        }
+    })
+</script>

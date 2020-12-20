@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jack518</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<!--  computed中的方法名已经不是函数，而是返回的变量了  -->
+<!--  也就是titleDes已不是函数，而是一个return的字符串  -->
+<!--  参见后面案例  -->
+    <h2>{{title+'__'+des}}</h2>
+    <h2>{{titleDes}}</h2>
+    <h2>{{titleDes2()}}</h2>
+    <h2>{{titleDes2}}</h2>
+</div>
+
+</body>
+</html>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            title: 'Banana',
+            des: 'a curved-shaped yellow fruit'
+        },
+        methods: {
+            titleDes2() {
+                return this.title + '__' + this.des;
+            }
+        },
+        computed: {
+            titleDes() {
+                return this.title + '__' + this.des;
+            }
+        }
+    })
+</script>

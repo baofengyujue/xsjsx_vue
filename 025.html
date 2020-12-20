@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jack518</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div id="out">{{title}}</div>
+</div>
+
+</body>
+</html>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            title:'hello'
+        },
+        beforeCreate(){
+            console.log('---beforeCreate')
+            var out = document.getElementById('out')
+            console.log(out)
+        },
+        created(){
+            console.log('---created')
+            var out = document.getElementById('out')
+            console.log(out)
+        },
+        beforeMount(){
+            console.log('---beforeMount')
+            var out = document.getElementById('out')
+            console.log(out)
+        },
+        mounted(){
+            console.log('---mounted')
+            var out = document.getElementById('out')
+            console.log(out)
+        }
+    })
+</script>

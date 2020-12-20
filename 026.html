@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jack518</title>
+    <style>
+        .box {
+            display: flex;
+        }
+        .item-box {
+            width: 300px;
+            margin: 20px;
+            border-bottom: solid 1px #aaa;
+        }
+        .item-box img {
+            width: 100%;
+        }
+    </style>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <h2>{{page}}</h2>
+    <button @click="prev" :disabled="page==1">上一页</button>
+    <button @click="next">下一页</button>
+
+    <div class="box">
+        <div class="item-box" v-for="item in listArr">
+            <img :src="item.picurl" alt="cannot load..">
+            <h3>{{item.title}}</h3>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            num:3,
+            page:1,
+            listArr:[]
+        },
+        methods:{
+            prev(){
+                this.page--;
+                this.jwGetData();
+            },
+            next(){
+                this.page++;
+                this.jwGetData();
+            },
+            jwGetData(){
+                axios({
+                    url:'https://ku.qingnian8.com/wxList.php',
+                    params:{
+                        num:this.num,
+                        page:this.page
+                    }
+                }).then(res=>{
+                    console.log(res)
+                    this.listArr = res.data;
+                })
+            },
+        },
+        created(){
+            this.jwGetData();
+        }
+    })
+</script>

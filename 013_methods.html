@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p[id] {
+            background-color: #ccc;
+        }
+        p[id='p3']{
+            background-color: pink;
+        }
+    </style>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div>单价:{{price}}</div>
+    <input v-model="num">
+    <h2>总价:{{total()}}</h2>
+    <h2>总价:{{total()}}</h2>
+    <h2>总价:{{total()}}</h2>
+    <p>{{arr1}}</p>
+    <p id="p1"></p>
+
+
+    <h2>2总价:{{total2}}</h2>
+    <h3>2总价:{{total2}}</h3>
+    <h3>2总价:{{total2}}</h3>
+    <p id="p3"></p>
+</div>
+<p id="p2"></p>
+
+</body>
+</html>
+
+<script>
+    var arr2 = [];
+    var arr3 = [];
+    new Vue({
+        el:'#app',
+        data:{
+            price:50,
+            num:1,
+            arr1:['frozen'],
+            num2:2,
+        },
+        // methods方法按一下每个地方调用一次
+        // 而computed方法后面的地方则使用缓存的值
+        methods:{
+            total(){
+                if (this.num===''){arr2=[]}
+                console.log('aaaaa');
+                // 此方法中含有了被监听的变量num2和arr1，
+                // 所以变量改变了会再次执行此方法，进而形成了死循环
+                // 事实上即使此方法中不包含num2或arr1，
+                // 只要num2或arr1在任何其它地方发生了改变，此方法都会执行
+                // 请参见下一案例
+                // this.arr1.push('a');
+                // this.num2++;
+                // 这里要想arr1的数据随着方法执行一次就刷新到页面一次
+                // 但在此方法中arr1是不能变化的，因为一旦arr1变化，
+                // 就会再次调用此方法形成死循环
+                arr2.push('a');
+                console.log(arr2);
+                // 同样一条语句，在vue作用范围内第一次执行不生效
+                document.getElementById('p1').innerHTML= `(${arr2.length})`+arr2;
+                document.getElementById('p2').innerHTML= `(${arr2.length})`+arr2;
+
+                return this.price*this.num;
+            }
+        },
+        computed:{
+            total2(){
+                if (this.num===''){arr3=[]}
+                console.log('bbbbb');
+                arr3.push('b');
+                setTimeout(()=>{
+                    document.getElementById('p3').innerHTML= `(${arr3.length})`+arr3;
+                },100)
+                return this.price*this.num;
+            }
+        }
+    })
+</script>

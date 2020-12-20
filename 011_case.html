@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jack518</title>
+    <style>
+        .box {
+            width: 200px;
+            line-height: 40px;
+            background-color: #eee;
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+
+        .box.active {
+            background-color: greenyellow;
+        }
+    </style>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div class="box"
+         :class="{active:num==idx}"
+         v-for="(item,idx) in listArr"
+         @click="clickBox(idx)">
+        {{idx}} - {{item}}
+    </div>
+    <h2>num:{{num}}</h2>
+</div>
+
+</body>
+</html>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            listArr:[
+                'apple',
+                'banana',
+                'grapes',
+                'orange'
+            ],
+            num:0
+        },
+        methods:{
+            clickBox(e){
+                this.num = e;
+            }
+        }
+    })
+</script>

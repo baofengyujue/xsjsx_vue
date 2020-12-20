@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+
+<div id="app1">
+    <h1>{{title}}</h1>
+</div>
+
+<div id="app2">
+    <h1>{{title}}</h1>
+</div>
+
+<div id="app3">
+    <h1>{{title}}</h1>
+</div>
+
+</body>
+</html>
+
+<script>
+    new Vue({
+        el:'#app1',
+        data:{
+            title:'Hello'
+        }
+    })
+
+    new Vue({
+        el:'#app2',
+        data:{
+            title:'World'
+        }
+    })
+</script>

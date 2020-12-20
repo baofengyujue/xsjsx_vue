@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jack518</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <itembox :title="item.title" :descr="item.descr" v-for="item in objArr"></itembox>
+</div>
+</body>
+</html>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            objArr:[
+                {
+                    title:'apple',
+                    descr:'round red'
+                },
+                {
+                    title:'banana',
+                    descr: 'curved yellow'
+                },
+                {
+                    title: 'grapes',
+                    descr: 'cluster purple'
+                }
+            ]
+        },
+        components:{
+            itembox:{
+                template:
+                    '<div style="background-color: #eee">\n' +
+                    '    <h2>{{title}}</h2>\n' +
+                    '    <p>descr:<b>{{descr}}</b></p>\n' +
+                    '    <hr>\n' +
+                    '</div>\n',
+                props:['title','descr'],
+                data(){
+                    return {
+                    }
+                },
+                methods:{
+                }
+            }
+        }
+    })
+</script>

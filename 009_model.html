@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input :value="val" @input="myInput">
+    <h2>{{val}}</h2>
+
+    <input v-model="val2">
+    <h2>{{val2}}</h2>
+    <hr>
+    <textarea v-model="val3"></textarea>
+    <h3>{{val3}}</h3>
+    <hr>
+    <input id="agreement" type="checkbox" v-model="checked">
+    <label for="agreement">是否同意用户协议</label>
+    <h2>{{checked}}</h2>
+    <div v-show="checked" style="padding: 10px;background-color: #eee;border-radius: .4em;display: inline-block">下一步
+    </div>
+    <hr>
+    爱好：
+    <label><input v-model="checkArr" type="checkbox" value="singing">唱歌</label>
+    <label><input v-model="checkArr" type="checkbox" value="dance">街舞</label>
+    <label><input v-model="checkArr" type="checkbox" value="basketball">篮球</label>
+    <label><input v-model="checkArr" type="checkbox" value="rap">rap</label>
+    <h2>{{checkArr}}</h2>
+    <hr>
+    <select v-model="selected">
+        <option value="orange">橘子</option>
+        <option value="grapes">葡萄</option>
+        <option value="watermelon">西瓜</option>
+        <option value="banana">香蕉</option>
+    </select>
+    <h2>{{selected}}</h2>
+    <hr>
+    <input v-model.trim="name" @input="myInput2">
+    <h2>{{name}}</h2>
+</div>
+
+</body>
+</html>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            val: '124',
+            val2: '114',
+            val3: 'haha',
+            checked: false,
+            checkArr: ['singing'],
+            selected:'grapes',
+            name:''
+        },
+        methods: {
+            myInput(e) {
+                console.log(e.target.value)
+                this.val = e.target.value;
+            },
+            myInput2(e) {
+                // console.log(e.target.value)
+                console.log(this.name)
+            }
+        }
+    })
+</script>

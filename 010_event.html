@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .out {
+            background-color: red;
+            width: 400px;
+            height: 400px;
+            margin: 30px;
+        }
+        .inner {
+            background-color: green;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h2 @click="click1">123</h2>
+    <h2 @click="click2(456)">456</h2>
+    <h2 @click="click3(789,$event)">789</h2>
+    <button @click.once="btnClick">点击</button>
+
+    <div class="out" @click="clickOut">
+        <div class="inner" @click.stop="clickInner"></div>
+    </div>
+</div>
+
+</body>
+</html>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {},
+        methods: {
+            click1(e) {
+                console.log(e)
+            },
+            click2(e) {
+                console.log(e)
+            },
+            click3(e, ev) {
+                console.log(e, ev, 666)
+            },
+            btnClick() {
+                alert(123)
+            },
+            clickOut(){
+                console.log('outxxx')
+            },
+            clickInner(){
+                console.log('inneraaa')
+            }
+        }
+    })
+</script>

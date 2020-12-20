@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jack518</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <itembox></itembox>
+    <itembox></itembox>
+<!--  单标签会有问题  -->
+    <itembox/>
+    <itembox/>
+
+</div>
+
+<template id="myTemp">
+    <div class="out">
+        <h2>自定义template</h2>
+    </div>
+</template>
+</body>
+</html>
+
+<script>
+    Vue.component('itembox',{
+        template:'#myTemp'
+    })
+
+    new Vue({
+        el:'#app',
+        data:{}
+    })
+</script>

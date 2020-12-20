@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jack518</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div>单价:{{price}}</div>
+    <input v-model="num">
+    <h2>总价:{{total()}}</h2>
+
+    <h2>2总价:{{total2}}</h2>
+    <p>{{arr2}}</p>
+</div>
+<p id="p1"></p>
+
+
+</body>
+</html>
+
+<script>
+    var arr = [];
+    new Vue({
+        el:'#app',
+        data:{
+            price:50,
+            num:1,
+            arr2:[]
+        },
+        methods:{
+            total(){
+                // 为什么这里输入一次，total方法却执行了两次
+                // 是因为total2中改变了arr2的值，即使total方法中
+                // 没有涉及到arr2
+                console.log(6666);
+                arr.push('a');
+                document.getElementById('p1').innerHTML= `(${arr.length})`+arr;
+                return this.price*this.num;
+            }
+        },
+        computed:{
+            total2() {
+                // 注释此语句观察效果
+                this.arr2.push('a');
+                return this.price*this.num;
+            }
+        }
+    })
+</script>

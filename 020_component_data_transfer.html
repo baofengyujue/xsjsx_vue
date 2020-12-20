@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jack518</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <itembox></itembox>
+    <itembox mytitle="js"></itembox>
+    <itembox mytitle="node"></itembox>
+</div>
+</body>
+</html>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{},
+        components:{
+            itembox:{
+                template:
+                    '<div style="background-color: #eee">\n' +
+                    '    <h2 @click="clickH2">Jack</h2>\n' +
+                    '    <p>mytitle:<b>{{mytitle}}</b></p>\n' +
+                    '    <p>{{num}} - {{name}}</p>\n' +
+                    '    <hr>\n' +
+                    '</div>\n',
+                props:['mytitle'],
+                data(){
+                    return {
+                        num:66,
+                        name:'jack'
+                    }
+                },
+                methods:{
+                    clickH2(){
+                        console.log('h2 clicked');
+                    }
+                }
+            }
+        }
+    })
+</script>

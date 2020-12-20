@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jack518</title>
+    <style>
+        .box {
+            display: inline-block;
+            padding: 5px 15px 2px;
+            background-color: #eee;
+            border: solid 1px #aaa;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .box .name {
+            color: limegreen;
+        }
+        .box h2{
+            margin: 0;
+        }
+    </style>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <itembox></itembox>
+    <itemBox></itemBox>
+    <item-box></item-box>
+    <hr>
+    <ibox></ibox>
+    <hr>
+    <p-box></p-box>
+    <p-box></p-box>
+    <hr>
+
+    <div class="box">
+        <img src="./imgs/P4_然然喝酸奶-150.png" alt="">
+        <h2>喝酸奶</h2>
+        <div class="name">然然</div>
+    </div>
+</div>
+
+</body>
+</html>
+
+<script>
+
+    Vue.component('itembox',{
+        template: '<h3>hello Vue component..</h3>'
+    })
+
+    Vue.component('itemBox',{
+        template:'<h2>大小写会被转换really got me!!</h2>'
+    })
+
+    Vue.component('ibox',{
+        template:`
+        <h2>can only have 1 root element</h2>
+        <p>cannot load me</p>
+        `
+    })
+
+    Vue.component('p-box',{
+        template: '<div class="box">\n' +
+            '        <img src="./imgs/P4_然然喝酸奶-150.png" alt="">\n' +
+            '        <h2>喝酸奶</h2>\n' +
+            '        <div class="name">然然</div>\n' +
+            '    </div>'
+    })
+
+    new Vue({
+        el:'#app',
+        data:{
+        }
+    })
+</script>

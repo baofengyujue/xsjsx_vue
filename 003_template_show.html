@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<!--使用template不会多出来额外的嵌套结构-->
+    <template v-if="true">
+        <h1>床前明月光，疑似地上霜。</h1>
+        <p>静夜思</p>
+        <b>李白</b>
+    </template>
+
+    <template v-else>
+        <h1>清明时节雨纷纷，路上行人欲断魂。</h1>
+        <p>清明</p>
+        <b>杜牧</b>
+    </template>
+
+    <hr>
+<!-- display:none  -->
+    <div v-show="false">清明时节雨纷纷，路上行人欲断魂。</div>
+<!-- dom中没有此元素了   -->
+    <div v-if="false">清明时节雨纷纷，路上行人欲断魂。</div>
+</div>
+</body>
+</html>
+
+<script>
+    new Vue({
+        el:'#app'
+    })
+</script>

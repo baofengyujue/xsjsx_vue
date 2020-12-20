@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/xxx.js"></script>
+    <script src="js/yyy.js"></script>
+</head>
+<body>
+
+<script type="module">
+    import {name} from './js/xxx.js';
+    import {name as bname} from './js/yyy.js'
+    import jw from './js/zzz.js'
+    console.log(name)
+    console.log(bname)
+    console.log(jw)
+    console.log(jw.print())
+</script>
+</body>
+</html>
